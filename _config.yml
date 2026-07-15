@@ -1,11 +1,10 @@
 # Advance Software — Jekyll configuration (built automatically by GitHub Pages)
 #
-# NOTE on URLs: `url` and `baseurl` are intentionally NOT set here. When GitHub
-# Pages builds the site, the github-pages gem fills them in automatically from
-# the repository (e.g. url: https://<user>.github.io, baseurl: /<repo>).
-# If you later move to a custom domain, set them explicitly:
-#   url: "https://www.example.com"
-#   baseurl: ""
+# Custom domain: the site is served at the domain root, so url is set
+# explicitly and baseurl is empty. (Without a custom domain, remove both
+# lines and GitHub Pages fills them in from the repository.)
+url: "https://www.advancesoftwarefiji.com"
+baseurl: ""
 
 title: Advance Software
 tagline: Software engineering, data & AI. Done the right way.
