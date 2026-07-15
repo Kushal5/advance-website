@@ -1,0 +1,44 @@
+---
+permalink: /llms.txt
+---
+# Advance Software
+
+> Software engineering, data & AI systems — plus Microsoft Dynamics 365 Business
+> Central development — for businesses in Fiji, the Pacific, Australia and beyond.
+> Built to global standards. No hype. Just what works.
+
+Advance Software builds custom systems, AI and automation wired into the tools
+businesses already run. Services: Microsoft Dynamics 365 Business Central
+development (upgrade-safe AL extensions, Copilot and AI agents, Power BI /
+API / Copilot Studio & MCP integrations); AI systems grounded in the client's
+own data (knowledge search with sources shown, research & drafting systems,
+customer-service agents); automation & integration (document capture and
+routing, integrations that end re-keying, automated reporting); and data &
+dashboards (one source of truth, live sales/stock/cash answers, forecasting).
+
+The business is led by a hands-on Software Engineer with global experiences in
+Microsoft Dynamics Business Central, Systems, Data & AI (Microsoft Certified:
+Azure AI Engineer Associate). Delivering to global standards. First step for
+prospective clients: a free 30-minute AI strategy call.
+
+## Key pages
+
+- [Home]({{ '/' | absolute_url }}): what we build, why, and how it works
+- [Products]({{ '/products/' | absolute_url }}): AdvancedSuite — Business Central extensions by Advance Software
+- [Insights (blog)]({{ '/blog/' | absolute_url }}): practical writing on software, data, AI and Business Central
+- [Case studies]({{ '/case-studies/' | absolute_url }}): work that shipped
+- [RSS feed]({{ '/feed.xml' | absolute_url }})
+
+{% assign products = site.products | where_exp: "p", "p.published != false" | sort: "order" %}{% if products.size > 0 %}
+## Products
+{% for product in products %}
+- [{{ product.title }}]({{ product.url | absolute_url }}): {{ product.description | strip_newlines }}{% endfor %}
+{% endif %}
+## Posts
+{% for post in site.posts %}
+- [{{ post.title }}]({{ post.url | absolute_url }}): {{ post.description | strip_newlines }}{% endfor %}
+{% assign studies = site.case_studies | where_exp: "cs", "cs.published != false" %}{% if studies.size > 0 %}
+## Case studies
+{% for study in studies %}
+- [{{ study.title }}]({{ study.url | absolute_url }}): {{ study.description | strip_newlines }}{% endfor %}
+{% endif %}
