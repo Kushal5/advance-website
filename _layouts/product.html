@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<article class="section">
+  <div class="container">
+    <header class="article-header">
+      <p class="eyebrow">
+        Product{% if page.category %} &nbsp;&middot;&nbsp; {{ page.category }}{% endif %}
+      </p>
+      <h1 class="listing-title">{{ page.title }}</h1>
+      {% if page.description %}<p class="article-lede">{{ page.description }}</p>{% endif %}
+    </header>
+
+    <figure class="product-shot">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}" width="1080" height="1350">
+    </figure>
+
+    <div class="product-cta">
+      <a class="btn btn-solid" href="mailto:kushal@advancesoftwarefiji.com?subject={{ page.title | uri_escape }}">Book a Free Call</a>
+      <p class="trust">No jargon. No obligation.</p>
+    </div>
+
+    <div class="article">
+      {{ content }}
+    </div>
+  </div>
+</article>

@@ -1,0 +1,38 @@
+---
+layout: default
+title: Case Studies
+description: >-
+  Real systems shipped by Advance Software — software engineering, data, AI and
+  Business Central work for businesses in Fiji, the Pacific and Australia.
+permalink: /case-studies/
+---
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Case studies</p>
+    <h1 class="listing-title">Work that shipped.</h1>
+    <p class="sub">
+      What we built, why it mattered, and what changed — in plain language.
+    </p>
+    <div class="elbow" aria-hidden="true"></div>
+
+    {% assign studies = site.case_studies | where_exp: "cs", "cs.published != false" | sort: "date" | reverse %}
+    {% if studies.size > 0 %}
+    <ul class="post-list">
+      {% for study in studies %}
+      <li class="post-card">
+        <p class="post-meta">
+          {% if study.industry %}{{ study.industry }}{% endif %}{% if study.services and study.services != empty %} &nbsp;·&nbsp; {{ study.services | join: " · " }}{% endif %}
+        </p>
+        <h2><a href="{{ study.url | relative_url }}">{{ study.title }}</a></h2>
+        {% if study.description %}<p>{{ study.description }}</p>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="empty-note">
+      Case studies are being written up. In the meantime,
+      <a href="{{ '/' | relative_url }}#contact">book a free strategy call</a> and ask about recent work.
+    </p>
+    {% endif %}
+  </div>
+</section>

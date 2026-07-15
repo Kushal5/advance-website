@@ -1,0 +1,41 @@
+---
+layout: default
+title: Products
+description: >-
+  AdvancedSuite — a family of extensions for Microsoft Dynamics 365 Business
+  Central by Advance Software: sales dashboards, notifications & alerts, and more.
+permalink: /products/
+---
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Products</p>
+    <h1 class="listing-title">The AdvancedSuite.</h1>
+    <p class="sub">
+      A family of extensions for Microsoft Dynamics 365 Business Central —
+      built by Advance Software, to the same standard as everything we ship.
+    </p>
+    <div class="elbow" aria-hidden="true"></div>
+
+    {% assign products = site.products | where_exp: "p", "p.published != false" | sort: "order" %}
+    {% if products.size > 0 %}
+    <div class="product-grid">
+      {% for product in products %}
+      <a class="product-card" href="{{ product.url | relative_url }}">
+        <span class="chip-node" aria-hidden="true"></span>
+        <img src="{{ product.image | relative_url }}" alt="{{ product.image_alt | default: product.title }}" loading="lazy" width="1080" height="1350">
+        <div class="product-card-body">
+          {% if product.category %}<p class="chip-ref">{{ product.category }}</p>{% endif %}
+          <h2>{{ product.title }}</h2>
+          {% if product.description %}<p class="product-card-desc">{{ product.description }}</p>{% endif %}
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="empty-note">
+      Products are on the way. In the meantime,
+      <a href="{{ '/' | relative_url }}#contact">book a free strategy call</a>.
+    </p>
+    {% endif %}
+  </div>
+</section>

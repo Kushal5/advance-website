@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  {% seo %}
+  {% feed_meta %}
+
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/assets/og-image.jpg' | relative_url }}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+</head>
+<body id="top">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="container nav-wrap">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="Advance Software — home">
+      <img src="{{ '/assets/logo-white.png' | relative_url }}" alt="Advance Software" height="44">
+    </a>
+    <input type="checkbox" id="nav-t" class="nav-t" aria-label="Toggle navigation menu">
+    <nav class="nav" aria-label="Primary">
+      <a href="{{ '/' | relative_url }}#problem">The Problem</a>
+      <a href="{{ '/' | relative_url }}#build">What We Build</a>
+      <a href="{{ '/products/' | relative_url }}">Products</a>
+      <a href="{{ '/blog/' | relative_url }}">Insights</a>
+      <a href="{{ '/case-studies/' | relative_url }}">Case Studies</a>
+      <a href="{{ '/' | relative_url }}#about">About</a>
+      <a class="btn btn-solid btn-sm" href="{{ '/' | relative_url }}#contact">Book a Free Call</a>
+    </nav>
+    <label for="nav-t" class="burger" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </label>
+  </div>
+</header>
+
+<main id="main">
+  {{ content }}
+</main>
+
+<footer class="site-foot">
+  <div class="container foot-grid">
+    <a href="{{ '/' | relative_url }}" aria-label="Advance Software — home">
+      <img src="{{ '/assets/logo-white.png' | relative_url }}" alt="Advance Software">
+    </a>
+    <p class="foot-tag">Software engineering, data &amp; AI &mdash; built the right way, to global standards.</p>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="{{ '/' | relative_url }}#problem">The Problem</a><span class="dot">&middot;</span>
+      <a href="{{ '/' | relative_url }}#build">What We Build</a><span class="dot">&middot;</span>
+      <a href="{{ '/products/' | relative_url }}">Products</a><span class="dot">&middot;</span>
+      <a href="{{ '/blog/' | relative_url }}">Insights</a><span class="dot">&middot;</span>
+      <a href="{{ '/case-studies/' | relative_url }}">Case Studies</a><span class="dot">&middot;</span>
+      <a href="{{ '/' | relative_url }}#contact">Book a Call</a>
+    </nav>
+    <p class="foot-copy">&copy; {{ site.time | date: "%Y" }} Advance Software. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

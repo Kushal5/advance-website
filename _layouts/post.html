@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<article class="section">
+  <div class="container">
+    <header class="article-header">
+      <p class="eyebrow">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>{% if page.tags and page.tags != empty %} &nbsp;·&nbsp; {{ page.tags | join: " · " }}{% endif %}
+      </p>
+      <h1 class="listing-title">{{ page.title }}</h1>
+      {% if page.description %}<p class="article-lede">{{ page.description }}</p>{% endif %}
+    </header>
+
+    <div class="article">
+      {{ content }}
+    </div>
+
+    <footer class="article-cta">
+      <p class="eyebrow">Advance Software</p>
+      <p>Software engineering, data &amp; AI — done the right way. If this is the kind of
+      problem you're looking at, let's put real numbers on it.</p>
+      <a class="btn btn-solid" href="mailto:kushal@advancesoftwarefiji.com?subject=Free%20AI%20strategy%20call">Book a Free AI Strategy Call</a>
+    </footer>
+  </div>
+</article>

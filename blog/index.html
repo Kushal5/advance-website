@@ -1,0 +1,36 @@
+---
+layout: default
+title: Insights
+description: >-
+  Practical writing on software engineering, data, AI and Microsoft Dynamics 365
+  Business Central for businesses in Fiji, the Pacific, Australia and beyond.
+  No hype, sources shown.
+permalink: /blog/
+---
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Insights</p>
+    <h1 class="listing-title">Notes from the build.</h1>
+    <p class="sub">
+      Practical writing on software engineering, data, AI and Business Central —
+      no hype, sources shown.
+    </p>
+    <div class="elbow" aria-hidden="true"></div>
+
+    {% if site.posts.size > 0 %}
+    <ul class="post-list">
+      {% for post in site.posts %}
+      <li class="post-card">
+        <p class="post-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %B %Y" }}</time>{% if post.tags and post.tags != empty %} &nbsp;·&nbsp; {{ post.tags | join: " · " }}{% endif %}
+        </p>
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        {% if post.description %}<p>{{ post.description }}</p>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="empty-note">First posts are on the way. In the meantime, <a href="{{ '/' | relative_url }}#contact">book a free strategy call</a>.</p>
+    {% endif %}
+  </div>
+</section>

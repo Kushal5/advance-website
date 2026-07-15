@@ -1,0 +1,33 @@
+---
+layout: default
+---
+<article class="section">
+  <div class="container">
+    <header class="article-header">
+      <p class="eyebrow">
+        Case study{% if page.industry %} &nbsp;·&nbsp; {{ page.industry }}{% endif %}{% if page.services and page.services != empty %} &nbsp;·&nbsp; {{ page.services | join: " · " }}{% endif %}
+      </p>
+      <h1 class="listing-title">{{ page.title }}</h1>
+      {% if page.description %}<p class="article-lede">{{ page.description }}</p>{% endif %}
+    </header>
+
+    {% if page.results and page.results != empty %}
+    <ul class="results-box">
+      {% for result in page.results %}
+      <li><span class="mark mark-check" aria-hidden="true">&#10003;</span> {{ result }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    <div class="article">
+      {{ content }}
+    </div>
+
+    <footer class="article-cta">
+      <p class="eyebrow">Advance Software</p>
+      <p>Want an outcome like this for your business? It starts with a free 30-minute
+      strategy call — no jargon, no obligation.</p>
+      <a class="btn btn-solid" href="mailto:kushal@advancesoftwarefiji.com?subject=Free%20AI%20strategy%20call">Book a Free AI Strategy Call</a>
+    </footer>
+  </div>
+</article>
