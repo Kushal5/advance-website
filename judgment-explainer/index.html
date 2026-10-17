@@ -4,20 +4,30 @@ title: Fiji Judgment Explainer (Beta)
 description: Court judgments are public. Understanding them shouldn't need a law degree. Give a case number and get a plain-English explanation of a published Fiji judgment.
 permalink: /judgment-explainer/
 ---
-<article class="section">
+<style>
+  .je-open { display: inline-block; margin: 8px 0 4px; padding: 14px 26px; border: 0; border-radius: 999px; background: #80BACC; color: #07121B; font: inherit; font-weight: 700; cursor: pointer; }
+  .je-open:focus-visible { outline: 3px solid #F0F7FA; outline-offset: 3px; }
+  /* Computer: page on the left, chat docked on the right */
+  @media (min-width: 861px) {
+    .je .article-header, .je .article { max-width: min(720px, calc(100vw - 500px)); }
+  }
+</style>
+
+<article class="section je">
   <div class="container">
     <header class="article-header">
       <p class="eyebrow">Free tool &nbsp;&middot;&nbsp; Beta</p>
       <h1 class="listing-title">Fiji Judgment Explainer</h1>
       <p class="article-lede">Court judgments are public. Understanding them shouldn't need a law degree. Give a case number and get a plain-English explanation of a published Fiji judgment, with every point showing the paragraph it comes from.</p>
+      <button type="button" class="je-open" id="je-open">Open the explainer</button>
     </header>
 
     <div class="article">
       <h2>How to use it</h2>
       <ol>
-        <li>Tap the <strong>chat button</strong> at the bottom-right of this page.</li>
-        <li>Type a case number, for example <em>HBC 131 of 2023</em> or <em>ABU 6 of 2023</em>.</li>
-        <li>Confirm it's the right case. You get a plain-English summary: who was involved, what happened, what the court decided and what it ordered.</li>
+        <li>Type a case number in the chat, for example <em>HBC 131 of 2023</em> or <em>ABU 6 of 2023</em>.</li>
+        <li>Confirm it's the right case.</li>
+        <li>You get a plain-English summary: who was involved, what happened, what the court decided and what it ordered.</li>
       </ol>
 
       <h2>How it works</h2>
@@ -44,3 +54,23 @@ permalink: /judgment-explainer/
 
 <noscript><p class="container">The explainer needs JavaScript turned on to open.</p></noscript>
 <script src="https://app.autohive.com/widget/v1/f21deea1-6aa9-4c33-b811-3c7a2b9f213f/embed.js" async></script>
+<script>
+  (function () {
+    function openChat() {
+      var w = window.AutohiveWidget;
+      if (w && typeof w.open === 'function') { try { w.open(); } catch (e) {} return true; }
+      return false;
+    }
+    document.getElementById('je-open').addEventListener('click', openChat);
+
+    // Open straight away on phones (full screen) and computers (docked right).
+    // Tablets in between keep the chat button so it doesn't cover the text.
+    var phone = window.matchMedia('(max-width: 480px)').matches;
+    var computer = window.matchMedia('(min-width: 861px)').matches;
+    if (!phone && !computer) return;
+    var tries = 0;
+    var timer = setInterval(function () {
+      if (openChat() || ++tries > 60) clearInterval(timer);
+    }, 250);
+  })();
+</script>
